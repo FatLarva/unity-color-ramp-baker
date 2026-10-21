@@ -34,7 +34,7 @@ Adjust the gradient, width, or name, then click **Resave Loaded Asset**. The exi
 
 ### Read the documentation
 
-Choose **Tools → Color Ramp Baker → README** to open this local Markdown file in the application associated with `.md` files. This works with both Git-installed and embedded packages.
+Choose **Tools → Color Ramp Baker → README** to read this documentation inside Unity. The window includes a contents menu, buttons to open the baker or edit the selected ramp, and copy buttons for code examples. The license also opens inside the documentation window. This works with both Git-installed and embedded packages.
 
 ## Runtime access
 

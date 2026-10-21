@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using PackageInfo = UnityEditor.PackageManager.PackageInfo;
-using System.IO;
 using GradientTextureGenerator.Runtime;
 
 namespace GradientTextureGenerator.Editor
@@ -44,21 +42,7 @@ namespace GradientTextureGenerator.Editor
         [MenuItem(MenuRoot + "README", false, 1)]
         public static void OpenReadme()
         {
-            var package = PackageInfo.FindForAssembly(typeof(GradientTextureGenerator).Assembly);
-            if (package == null)
-            {
-                Debug.LogError("[Color Ramp Baker] Could not locate the installed package.");
-                return;
-            }
-
-            var readmePath = Path.Combine(package.resolvedPath, "README.md");
-            if (!File.Exists(readmePath))
-            {
-                Debug.LogError($"[Color Ramp Baker] README not found at: {readmePath}");
-                return;
-            }
-
-            EditorUtility.OpenWithDefaultApp(readmePath);
+            ColorRampReadmeWindow.ShowWindow();
         }
 
         /// <summary>

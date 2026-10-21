@@ -1,6 +1,6 @@
 {
   "name": "com.fatlarva.colorrampbaker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Color Ramp Baker",
   "description": "A Unity editor tool for baking color gradients into texture assets.",
   "unity": "2021.3",

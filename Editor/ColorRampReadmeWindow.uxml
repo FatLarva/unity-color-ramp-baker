@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Style src="ColorRampReadmeWindow.uss" />
+    <ui:VisualElement name="readme" class="readme-window">
+        <ui:VisualElement class="readme-header">
+            <ui:VisualElement class="readme-heading-row">
+                <ui:Label text="Color Ramp Baker" class="readme-title" />
+                <ui:Label name="version" class="readme-version" />
+            </ui:VisualElement>
+            <ui:Label name="description" class="readme-description" />
+            <ui:VisualElement class="readme-actions">
+                <ui:Button name="openBaker" text="Open Baker" class="primary-action" />
+                <ui:Button name="editSelected" text="Edit Selected Ramp" tooltip="Select a GradientTextureAsset in the Project window to edit it." />
+                <ui:Button name="openRepository" text="GitHub" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <uie:Toolbar>
+            <uie:ToolbarButton name="backToReadme" text="README" tooltip="Return to the main documentation." />
+            <uie:ToolbarMenu name="contents" text="Contents" />
+        </uie:Toolbar>
+        <ui:ScrollView name="readmeScroll" mode="Vertical" class="readme-scroll">
+            <ui:VisualElement name="document" class="readme-document" />
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
