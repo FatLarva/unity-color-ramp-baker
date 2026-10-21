@@ -22,15 +22,15 @@ The package ID is `com.fatlarva.colorrampbaker`. You can also clone the reposito
 
 1. Open **Tools → Color Ramp Baker → Open**.
 2. Enter a name, configure the gradient, and select a texture width from 64 to 1024 pixels.
-3. Click **Generate & Save New Asset** and choose a location in your project's Assets folder.
+3. Click **Bake & Save New Ramp** and choose a location in your project's Assets folder.
 
-The baker creates a single `GradientTextureAsset` containing an embedded `Texture2D` sub-asset. The texture is one pixel high, uses RGBA32 without mipmaps, and has bilinear filtering and clamp wrapping. No separate PNG is produced. Expand the asset in the Project window to access the texture and assign it to a material or another texture field.
+The baker creates a single `ColorRamp` containing an embedded `Texture2D` sub-asset. The texture is one pixel high, uses RGBA32 without mipmaps, and has bilinear filtering and clamp wrapping. No separate PNG is produced. Expand the asset in the Project window to access the texture and assign it to a material or another texture field.
 
 ### Edit an existing ramp
 
-Drag a `GradientTextureAsset` into the **Load Asset** field, or right-click it in the Project window and choose **Edit Gradient Texture**.
+Drag a `ColorRamp` into the **Load Ramp** field, or right-click it in the Project window and choose **Edit Color Ramp**.
 
-Adjust the gradient, width, or name, then click **Resave Loaded Asset**. The existing texture is updated in place, including when its width changes, so material and scene references remain intact. Renaming the asset in the Project window also synchronizes the internal asset and texture names.
+Adjust the gradient, width, or name, then click **Rebake Loaded Ramp**. The existing texture is updated in place, including when its width changes, so material and scene references remain intact. Renaming the asset in the Project window also synchronizes the internal asset and texture names.
 
 ### Read the documentation
 
@@ -38,26 +38,22 @@ Choose **Tools → Color Ramp Baker → README** to read this documentation insi
 
 ## Runtime access
 
-`GradientTextureAsset` remains available in player builds:
+`ColorRampBaker.ColorRamp` is available in player builds through the `ColorRampBaker.Runtime` assembly. If your scripts use an assembly definition, add a reference to `ColorRampBaker.Runtime`.
 
 ```csharp
-using GradientTextureGenerator.Runtime;
+using ColorRampBaker;
 using UnityEngine;
 
 public class ColorRampExample : MonoBehaviour
 {
-    [SerializeField] private GradientTextureAsset _ramp;
+    [SerializeField] private ColorRamp _ramp;
 
     public Texture2D Texture => _ramp.Texture;
     public Gradient Gradient => _ramp.Gradient;
 }
 ```
 
-The baker window, context menu, and rename processor are editor-only.
-
-## Compatibility with the original package
-
-Color Ramp Baker replaces `com.gradienttexturegenerator.editor`. Remove the old package before installing this one. The original script GUIDs, C# namespaces, and assembly names (`GradientTextureGenerator.Runtime` and `GradientTextureGenerator.Editor`) are preserved so existing assets and assembly references remain valid.
+The `ColorRampBakerWindow`, context menu, rename processor, and README window live in the editor-only `ColorRampBaker.Editor` namespace and assembly.
 
 ## License
 

@@ -2,14 +2,14 @@ using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using GradientTextureGenerator.Runtime;
+using ColorRampBaker;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using PackageInfo = UnityEditor.PackageManager.PackageInfo;
 
-namespace GradientTextureGenerator.Editor
+namespace ColorRampBaker.Editor
 {
     public class ColorRampReadmeWindow : EditorWindow
     {
@@ -51,13 +51,13 @@ namespace GradientTextureGenerator.Editor
             layout.CloneTree(rootVisualElement);
             rootVisualElement.Q<Label>("version").text = "v" + _package.version;
             rootVisualElement.Q<Label>("description").text = _package.description;
-            rootVisualElement.Q<Button>("openBaker").clicked += GradientTextureGenerator.ShowWindow;
+            rootVisualElement.Q<Button>("openBaker").clicked += ColorRampBakerWindow.ShowWindow;
             rootVisualElement.Q<Button>("openRepository").clicked += () => Application.OpenURL(RepositoryUrl);
             _editSelected = rootVisualElement.Q<Button>("editSelected");
             _editSelected.clicked += () =>
             {
-                if (Selection.activeObject is GradientTextureAsset ramp)
-                    GradientTextureGenerator.OpenWithAsset(ramp);
+                if (Selection.activeObject is ColorRamp ramp)
+                    ColorRampBakerWindow.OpenWithAsset(ramp);
             };
             _scroll = rootVisualElement.Q<ScrollView>("readmeScroll");
             _document = rootVisualElement.Q("document");
@@ -68,7 +68,7 @@ namespace GradientTextureGenerator.Editor
             RenderDocument();
         }
 
-        private void UpdateSelection() => _editSelected?.SetEnabled(Selection.activeObject is GradientTextureAsset);
+        private void UpdateSelection() => _editSelected?.SetEnabled(Selection.activeObject is ColorRamp);
 
         private void OpenDocument(string path)
         {

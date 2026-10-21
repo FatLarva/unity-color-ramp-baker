@@ -1,12 +1,12 @@
 using System;
 using UnityEditor;
 using UnityEngine;
-using GradientTextureGenerator.Runtime;
+using ColorRampBaker;
 
-namespace GradientTextureGenerator.Editor
+namespace ColorRampBaker.Editor
 {
     /// <summary>
-    /// Keeps the <see cref="GradientTextureAsset"/> internal name and its embedded
+    /// Keeps the <see cref="ColorRamp"/> internal name and its embedded
     /// Texture2D sub-asset name in sync with the .asset filename whenever the user
     /// renames the file manually in the Project view.
     ///
@@ -14,7 +14,7 @@ namespace GradientTextureGenerator.Editor
     /// so it is invoked only for the specific asset being renamed, not on every
     /// asset change in the project.
     /// </summary>
-    public class GradientTextureAssetModificationProcessor : AssetModificationProcessor
+    public class ColorRampAssetModificationProcessor : AssetModificationProcessor
     {
         private static AssetMoveResult OnWillMoveAsset(string oldPath, string newPath)
         {
@@ -34,8 +34,8 @@ namespace GradientTextureGenerator.Editor
                 return AssetMoveResult.DidNotMove;
             }
 
-            // Only act on GradientTextureAssets.
-            var asset = AssetDatabase.LoadAssetAtPath<GradientTextureAsset>(oldPath);
+            // Only act on ColorRamps.
+            var asset = AssetDatabase.LoadAssetAtPath<ColorRamp>(oldPath);
             if (asset == null)
             {
                 return AssetMoveResult.DidNotMove;
@@ -60,7 +60,7 @@ namespace GradientTextureGenerator.Editor
             }
 
             AssetDatabase.SaveAssetIfDirty(asset);
-            Debug.Log($"[GradientTextureAsset] Synced internal names to '{newName}'.");
+            Debug.Log($"[ColorRamp] Synced internal names to '{newName}'.");
 
             // Let Unity perform the actual file move normally.
             return AssetMoveResult.DidNotMove;

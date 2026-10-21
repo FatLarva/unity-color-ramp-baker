@@ -1,6 +1,6 @@
 {
-  "name": "GradientTextureGenerator.Runtime",
-  "rootNamespace": "GradientTextureGenerator",
+  "name": "ColorRampBaker.Runtime",
+  "rootNamespace": "ColorRampBaker",
   "references": [],
   "includePlatforms": [],
   "excludePlatforms": [],

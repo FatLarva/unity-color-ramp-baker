@@ -9,7 +9,7 @@
             <ui:Label name="description" class="readme-description" />
             <ui:VisualElement class="readme-actions">
                 <ui:Button name="openBaker" text="Open Baker" class="primary-action" />
-                <ui:Button name="editSelected" text="Edit Selected Ramp" tooltip="Select a GradientTextureAsset in the Project window to edit it." />
+                <ui:Button name="editSelected" text="Edit Selected Ramp" tooltip="Select a ColorRamp in the Project window to edit it." />
                 <ui:Button name="openRepository" text="GitHub" />
             </ui:VisualElement>
         </ui:VisualElement>

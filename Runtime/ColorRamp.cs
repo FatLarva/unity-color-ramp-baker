@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace GradientTextureGenerator.Runtime
+namespace ColorRampBaker
 {
-    public class GradientTextureAsset : ScriptableObject
+    public class ColorRamp : ScriptableObject
     {
         [SerializeField]
         private Texture2D _texture;
