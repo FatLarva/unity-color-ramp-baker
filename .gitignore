@@ -1,0 +1,15 @@
+# IDE settings and temporary files
+.idea/
+.vs/
+*.suo
+*.user
+*.userprefs
+*.tmp
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Operating system files
+.DS_Store
+Thumbs.db

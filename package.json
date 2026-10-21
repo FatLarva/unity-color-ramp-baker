@@ -1,0 +1,24 @@
+{
+  "name": "com.fatlarva.colorrampbaker",
+  "version": "1.0.0",
+  "displayName": "Color Ramp Baker",
+  "description": "A Unity editor tool for baking color gradients into texture assets.",
+  "unity": "2021.3",
+  "license": "MIT",
+  "documentationUrl": "https://github.com/FatLarva/unity-color-ramp-baker#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FatLarva/unity-color-ramp-baker.git"
+  },
+  "author": {
+    "name": "Ilya Sakhatskiy",
+    "url": "https://github.com/FatLarva"
+  },
+  "keywords": [
+    "gradient",
+    "color-ramp",
+    "texture",
+    "editor",
+    "tool"
+  ]
+}
